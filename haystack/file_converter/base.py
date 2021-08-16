@@ -85,7 +85,7 @@ class BaseConverter(BaseComponent):
     def run(self, file_paths: Union[Path, List[Path]],  # type: ignore
             meta: Optional[Union[Dict[str, str], List[Dict[str, str]]]] = None,  # type: ignore
             remove_numeric_tables: Optional[bool] = None,  # type: ignore
-            valid_languages: Optional[List[str]] = None, **kwargs):  # type: ignore
+            valid_languages: Optional[List[str]] = None):  # type: ignore
 
         if isinstance(file_paths, Path):
             file_paths = [file_paths]
@@ -102,7 +102,7 @@ class BaseConverter(BaseComponent):
                     valid_languages=valid_languages,
             ))
 
-        result = {"documents": documents, **kwargs}
+        result = {"documents": documents}
         return result, "output_1"
 
 
